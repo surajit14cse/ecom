@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { use, useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Header } from "@/components/header"
@@ -14,8 +14,15 @@ import { products } from "@/lib/data"
 import { useCart } from "@/lib/cart-context"
 import { WishlistButton } from "@/components/wishlist-button"
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-  const product = products.find((p) => p.id === params.id)
+interface PageProps {
+  params: Promise<{ id: string }>
+}
+
+export default function ProductPage({ params }: PageProps) {
+  const resolvedParams = use(params)
+  const productId = resolvedParams.id
+  const product = products.find((p) => p.id === productId)
+
   const [quantity, setQuantity] = useState(1)
   const [selectedImage, setSelectedImage] = useState(0)
   const { addItem } = useCart()
@@ -23,7 +30,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
-  }, [params.id])
+  }, [productId])
 
   if (!product) {
     return (
