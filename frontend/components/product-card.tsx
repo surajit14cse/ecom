@@ -3,7 +3,7 @@ import Link from "next/link"
 import { ShoppingCart } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-
+import { AddToCartButton } from "@/components/add-to-cart-button"
 
 interface ProductCardProps {
   id: string
@@ -50,6 +50,9 @@ export function ProductCard({
           </div>
           {/* Quick Actions */}
           <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <AddToCartButton productId={id} size="icon" variant="secondary" className="h-9 w-9 rounded-full">
+              <ShoppingCart className="h-4 w-4" />
+            </AddToCartButton>
           </div>
         </Link>
 
