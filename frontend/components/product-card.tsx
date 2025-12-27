@@ -76,7 +76,12 @@ export function ProductCard({
             ))}
           </div>
 
-
+          <Link
+            href={`/product/${id}`}
+            className="block mt-3 w-full bg-accent text-accent-foreground py-2 px-4 rounded-md font-medium text-sm hover:bg-accent/90 transition-colors text-center"
+          >
+            Shop Now
+          </Link>
         </div>
       </CardContent>
     </Card>
