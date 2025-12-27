@@ -12,7 +12,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ShoppingCart, Check, Minus, Plus, Star, Truck, Shield, RotateCcw } from "lucide-react"
 import { products } from "@/lib/data"
 import { useCart } from "@/lib/cart-context"
-import { WishlistButton } from "@/components/wishlist-button"
 
 interface PageProps {
   params: Promise<{ id: string }>
@@ -198,7 +197,6 @@ export default function ProductPage({ params }: PageProps) {
                       </>
                     )}
                   </Button>
-                  <WishlistButton productId={product.id} size="lg" variant="outline" />
                 </div>
 
                 {/* Features */}
