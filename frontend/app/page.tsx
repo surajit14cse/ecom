@@ -15,7 +15,7 @@ export default function HomePage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative bg-secondary py-20 md:py-32">
+        <section className="relative bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-800 dark:to-gray-900 py-20 md:py-32">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
